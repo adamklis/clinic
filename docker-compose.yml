@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  backend:
+    image: adamklis/veterinary-clinic-backend:latest
+    ports:
+      - "22081:80"
+    restart: always
+
+  frontend:
+    image: adamklis/veterinary-clinic-frontend:latest
+    ports:
+      - "22080:80"
+    restart: always
+
