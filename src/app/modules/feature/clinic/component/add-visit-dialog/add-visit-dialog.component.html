@@ -1,0 +1,74 @@
+<div mat-dialog-title>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <p>{{ 'CLINICS.MODAL.HEADER' | translate }}</p>
+    <button mat-icon-button mat-dialog-close aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+<form [formGroup]="visitForm" class="form" (submit)="confirmVisit($event)">
+  <mat-dialog-content class="mat-typography">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>{{ 'CLINICS.MODAL.VISIT_TYPE' | translate }}</mat-label>
+        <mat-select formControlName="visitType" cdkFocusInitial required>
+          <mat-option *ngFor="let visitType of visitTypes" [value]="visitType">{{ visitType }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="visitForm.controls.visitType.invalid">
+          {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="half-width">
+        <mat-label>{{ 'CLINICS.MODAL.FORENAME' | translate }}</mat-label>
+        <input formControlName="forename" matInput required>
+        <mat-error *ngIf="visitForm.controls.forename.invalid">
+          {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="half-width">
+        <mat-label>{{ 'CLINICS.MODAL.SURNAME' | translate }}</mat-label>
+        <input formControlName="surname" matInput required>
+        <mat-error *ngIf="visitForm.controls.surname.invalid">
+          {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>{{ 'CLINICS.MODAL.ANIMAL' | translate }}</mat-label>
+        <input formControlName="animal" (input)="onAnimalInput($event)" matInput [placeholder]="'CLINICS.MODAL.ANIMAL_PLACEHOLDER' | translate" required>
+        <mat-error *ngIf="visitForm.controls.animal.invalid">
+          {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="half-width">
+        <mat-label>{{ 'CLINICS.MODAL.TELEPHONE_NUMBER' | translate }}</mat-label>
+        <input type="tel" (blur)="formatTelephoneNumber()" formControlName="telephoneNumber" matInput [placeholder]="'CLINICS.MODAL.TELEPHONE_NUMBER_PLACEHOLDER' | translate">
+        <mat-error *ngIf="visitForm.controls.telephoneNumber.hasError('pattern')">
+          {{ "CLINICS.VALIDATION.VALID_PHONE" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="half-width">
+        <mat-label>{{ 'CLINICS.MODAL.EMAIL' | translate }}</mat-label>
+        <input type="email" formControlName="email" matInput [placeholder]="'CLINICS.MODAL.EMAIL_PLACEHOLDER' | translate" required>
+        <mat-error *ngIf="visitForm.controls.email.hasError('email') && !visitForm.controls.email.hasError('required')">
+          {{ "CLINICS.VALIDATION.VALID_EMAIL" | translate }}
+        </mat-error>
+        <mat-error *ngIf="visitForm.controls.email.hasError('required')">
+          {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="rodo" class="full-width" required>
+        <p style="white-space: pre-wrap; margin: 15px 0 0;">{{ 'CLINICS.MODAL.RODO' | translate }}</p>
+      </mat-checkbox>
+      <mat-error style="font-size: 10.5px;" *ngIf="(visitForm.controls.rodo.touched || confirmClicked) && visitForm.controls.rodo.invalid">
+        {{ "CLINICS.VALIDATION.FIELD_REQUIRED" | translate }}
+      </mat-error>
+  </mat-dialog-content>
+  <mat-dialog-actions class="mat-dialog-actions">
+    <button mat-raised-button type="submit">{{ 'CLINICS.MODAL.SEND' | translate }}</button>
+  </mat-dialog-actions>
+</form>

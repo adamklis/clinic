@@ -1,0 +1,15 @@
+<mat-card fxLayout="column" class="clinic-card">
+  <mat-card-header fxFlex>
+    <div mat-card-avatar class="mat-card-avatar">
+      <span>{{clinic.rating.value}}/10</span>
+    </div>
+    <mat-card-title>{{ clinic.name }}</mat-card-title>
+    <mat-card-subtitle>{{ clinic.address.street }} {{ clinic.address.number }}, {{ clinic.address.city }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content fxFlex class="mat-card-content">
+    <p>{{ clinic.description }}</p>
+  </mat-card-content>
+  <mat-card-actions class="mat-card-actions" fxFlexAlign="center">
+    <button (click)="onSelect(clinic)" mat-raised-button>{{ 'CLINICS.CARD.SELECT' | translate }}</button>
+  </mat-card-actions>
+</mat-card>

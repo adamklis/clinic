@@ -1,0 +1,32 @@
+{
+  "CLINICS": {
+    "HEADER": "Wybierz przychodnię",
+    "CARD": {
+      "SELECT": "WYBIERZ"
+    },
+    "MODAL": {
+      "HEADER": "Zgłoszenie wizyty",
+      "VISIT_TYPE": "Typ wizyty",
+      "FORENAME": "Imię",
+      "SURNAME": "Nazwisko",
+      "ANIMAL": "Zwierzę",
+      "ANIMAL_PLACEHOLDER": "np. Kot norweski leśny, Puszek...",
+      "TELEPHONE_NUMBER": "Numer telefonu",
+      "TELEPHONE_NUMBER_PLACEHOLDER": "+48 123 456 789",
+      "EMAIL": "E-mail",
+      "EMAIL_PLACEHOLDER": "example@email.com",
+      "RODO": "Wyrażam zgodę na przekazanie moich danych osobowych do podmiotu, do którego zapisuje się na wizytę, w celu realizacji zamówienia wizyty.",
+      "SEND": "WYŚLIJ ZŁOSZENIE"
+    },
+    "SNACKBAR": {
+      "SENT_SUCCESS": "Wysłano zgłoszenie",
+      "SENT_ERROR": "Błąd zgłoszenia",
+      "CLOSE": "Zamknij"
+    },
+    "VALIDATION": {
+      "FIELD_REQUIRED": "Pole jest wymagane.",
+      "VALID_EMAIL": "Proszę wprowadzić poprawny adres email.",
+      "VALID_PHONE": "Proszę wprowadzić poprawny numer telefonu."
+    }
+  }
+}

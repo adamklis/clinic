@@ -1,0 +1,7 @@
+<h1 class="mat-h1" class="header">{{ "CLINICS.HEADER" | translate }}</h1>
+<div fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutGap="16px grid" fxLayoutAlign="left" class="dashboard-content">
+  <ng-container *ngFor="let clinic of clinics">
+    <app-clinic-card fxFlex="33%" fxFlex.lt-md="50%" (selectEvent)="onSelect($event)" [clinic]="clinic"></app-clinic-card>
+  </ng-container>
+</div>
+
